@@ -1,0 +1,6 @@
+#!/bin/bash
+set -v
+g++ -c -fPIC libstft.cpp -o libstft.o
+g++ -shared -Wl,-soname,libstft.so -o libstft.so  libstft.o
+rm libstft.o
+g++ -Wall libstft.cpp -o test && chmod u+x ./test
